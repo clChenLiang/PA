@@ -20,8 +20,6 @@
 ```
 返回 `JSON` 如下：
 ```javascript
-const path = require('path');
-const fs = require('fs');
 dirIndex = {
     abbrev: 'abbrev',
     ansi: {
@@ -39,7 +37,8 @@ dirIndex = {
 
 ### 代码
 ```JavaScript
-const path = 
+const path = require('path');
+const fs = require('fs');
 // 获取指定路径 path 下的，默认深度为 3 的目录 JSON
 function getIndexByPath(dir, deep = 3) {
     let dirDevide = dir.split('/');
