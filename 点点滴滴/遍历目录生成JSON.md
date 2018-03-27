@@ -20,6 +20,8 @@
 ```
 返回 `JSON` 如下：
 ```javascript
+const path = require('path');
+const fs = require('fs');
 dirIndex = {
     abbrev: 'abbrev',
     ansi: {
@@ -37,8 +39,9 @@ dirIndex = {
 
 ### 代码
 ```JavaScript
+const path = 
 // 获取指定路径 path 下的，默认深度为 3 的目录 JSON
-function getIndexByPath(path, deep = 3) {
+function getIndexByPath(dir, deep = 3) {
     let dirDevide = dir.split('/');
     let preDir = dirDevide.splice(0, dirDevide.length - 1).join('/');
     let index = {};
@@ -46,8 +49,8 @@ function getIndexByPath(path, deep = 3) {
     return index;
 }
 // 开始对指定 path 递归查找深度为 deep 深度
-function getIndexOfPathByDeep(obj, path, curDir, deep) {
-    let curPath = path.join(path, curDir);
+function getIndexOfPathByDeep(obj, dir, curDir, deep) {
+    let curPath = path.join(dir, curDir);
     // 达到搜索深度，停止
     if(deep) {
         obj[curDir] = curDir;
